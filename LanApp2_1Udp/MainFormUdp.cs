@@ -63,10 +63,11 @@ namespace LanApp2_1Udp
             StringBuilder builder = new StringBuilder();
             int len = 0;
             byte[] data = new byte[64];
+            // информация про отправителя
+            EndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
 
             while (true)
             {
-                EndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
                 do
                 {
                     len = listeningSocket.ReceiveFrom(data, ref remoteEndPoint);
