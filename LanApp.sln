@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanApp2_2AsyncTcpServer", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanApp2_3TcpAsyncClient", "LanApp2_3TcpAsyncClient\LanApp2_3TcpAsyncClient.csproj", "{384267C2-2321-4E17-A9F3-B5410AD48C7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanApp3_1TcpListener", "LanApp3_1TcpListener\LanApp3_1TcpListener.csproj", "{29B60226-137E-481B-9805-EFCA226E3DC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanApp3_2TcpClient", "LanApp3_2TcpClient\LanApp3_2TcpClient.csproj", "{4035B8B4-A1E4-4F2D-B020-7A60034DCA14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{384267C2-2321-4E17-A9F3-B5410AD48C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{384267C2-2321-4E17-A9F3-B5410AD48C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{384267C2-2321-4E17-A9F3-B5410AD48C7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29B60226-137E-481B-9805-EFCA226E3DC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29B60226-137E-481B-9805-EFCA226E3DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29B60226-137E-481B-9805-EFCA226E3DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29B60226-137E-481B-9805-EFCA226E3DC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4035B8B4-A1E4-4F2D-B020-7A60034DCA14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4035B8B4-A1E4-4F2D-B020-7A60034DCA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4035B8B4-A1E4-4F2D-B020-7A60034DCA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4035B8B4-A1E4-4F2D-B020-7A60034DCA14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
