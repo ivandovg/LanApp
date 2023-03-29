@@ -10,17 +10,27 @@ namespace LanApp2_2AsyncTcpServer
 {
     internal class ClientConnection
     {
+        private static int clientConnectionCount = 0;
+        private int clientId;
+        public int ClientId { get => clientId; }
         private Socket client;
 
+        public delegate void DisconnectedDelegate(ClientConnection connection, string ip);
+        public event DisconnectedDelegate Disconnected;
+        public override string ToString()
+        {
+            return $"Client {clientId}";
+        }
         public ClientConnection(Socket socket)
         {
             client = socket;
+            clientId = ++clientConnectionCount;
         }
 
         public Task StartMessagingAsync() => Task.Run(StartMessaging);
         public void StartMessaging()
         {
-            string ip=client.RemoteEndPoint.ToString();
+            string ip = client.RemoteEndPoint.ToString();
             // ответ для клиента
             string answerText = "Ваше сообщение доставленно!";
             byte[] answerData = Encoding.UTF8.GetBytes(answerText);
@@ -64,11 +74,15 @@ namespace LanApp2_2AsyncTcpServer
                 // закрыть подключение
                 client.Close();
                 //вывести на консоль сообщение
-                Console.WriteLine($"Client '{ip}' disconnect!");
+                //Console.WriteLine($"Client '{ip}' disconnect!");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Disconnected?.Invoke(this, ip);
             }
         }
     }

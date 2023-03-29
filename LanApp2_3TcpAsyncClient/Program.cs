@@ -67,10 +67,9 @@ namespace LanApp2_3TcpAsyncClient
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.WriteLine("\nPress Enter key...");
+                Console.ReadLine();
             }
-
-            Console.WriteLine("\nPress Enter key...");
-            Console.ReadLine();
         }
     }
 }
