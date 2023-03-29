@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pbScreen = new System.Windows.Forms.PictureBox();
             this.btnGetScreen = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.edIPAddress = new System.Windows.Forms.TextBox();
             this.edPort = new System.Windows.Forms.NumericUpDown();
+            this.timerGetScreen = new System.Windows.Forms.Timer(this.components);
+            this.btnTimerScreen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbScreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edPort)).BeginInit();
             this.SuspendLayout();
@@ -108,11 +111,27 @@
             0,
             0});
             // 
+            // timerGetScreen
+            // 
+            this.timerGetScreen.Interval = 1000;
+            this.timerGetScreen.Tick += new System.EventHandler(this.timerGetScreen_Tick);
+            // 
+            // btnTimerScreen
+            // 
+            this.btnTimerScreen.Location = new System.Drawing.Point(551, 135);
+            this.btnTimerScreen.Name = "btnTimerScreen";
+            this.btnTimerScreen.Size = new System.Drawing.Size(75, 23);
+            this.btnTimerScreen.TabIndex = 7;
+            this.btnTimerScreen.Text = "TimerScreen";
+            this.btnTimerScreen.UseVisualStyleBackColor = true;
+            this.btnTimerScreen.Click += new System.EventHandler(this.btnTimerScreen_Click);
+            // 
             // MainFormScreenClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 460);
+            this.Controls.Add(this.btnTimerScreen);
             this.Controls.Add(this.edPort);
             this.Controls.Add(this.edIPAddress);
             this.Controls.Add(this.label2);
@@ -137,6 +156,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox edIPAddress;
         private System.Windows.Forms.NumericUpDown edPort;
+        private System.Windows.Forms.Timer timerGetScreen;
+        private System.Windows.Forms.Button btnTimerScreen;
     }
 }
 

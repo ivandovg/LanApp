@@ -28,5 +28,25 @@ namespace LanApp5_2ScreenClient
                 pbScreen.Image = Image.FromStream(ns);
             }
         }
+
+        private void btnTimerScreen_Click(object sender, EventArgs e)
+        {
+            if (timerGetScreen.Enabled)
+            {
+                timerGetScreen.Stop();
+            }
+            else
+            {
+
+                timerGetScreen.Start();
+            }
+        }
+
+        private void timerGetScreen_Tick(object sender, EventArgs e)
+        {
+            timerGetScreen.Stop();
+            btnGetScreen_Click(null, null);
+            timerGetScreen.Start();
+        }
     }
 }
