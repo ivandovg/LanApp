@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanApp5_1ScreenServer", "La
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanApp5_2ScreenClient", "LanApp5_2ScreenClient\LanApp5_2ScreenClient.csproj", "{1F3D9018-C732-4C3B-ABB6-D8497BE7AD56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanApp6_1Multicast", "LanApp6_1Multicast\LanApp6_1Multicast.csproj", "{042F125B-1F60-45B0-8E2D-8A2681547085}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{1F3D9018-C732-4C3B-ABB6-D8497BE7AD56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F3D9018-C732-4C3B-ABB6-D8497BE7AD56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F3D9018-C732-4C3B-ABB6-D8497BE7AD56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{042F125B-1F60-45B0-8E2D-8A2681547085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042F125B-1F60-45B0-8E2D-8A2681547085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042F125B-1F60-45B0-8E2D-8A2681547085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042F125B-1F60-45B0-8E2D-8A2681547085}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
