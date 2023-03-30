@@ -36,12 +36,12 @@
             this.edMessage = new System.Windows.Forms.TextBox();
             this.lsMessages = new System.Windows.Forms.ListBox();
             this.grConnection = new System.Windows.Forms.GroupBox();
+            this.edUsername = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.edRemoteAddress = new System.Windows.Forms.TextBox();
             this.edRemotePort = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.edUsername = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.grSendMessage.SuspendLayout();
             this.grConnection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edRemotePort)).BeginInit();
@@ -66,6 +66,7 @@
             this.btnDisconnect.TabIndex = 14;
             this.btnDisconnect.Text = "Disconnect";
             this.btnDisconnect.UseVisualStyleBackColor = true;
+            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
             // btnConnect
             // 
@@ -129,6 +130,23 @@
             this.grConnection.TabStop = false;
             this.grConnection.Text = "Connection info";
             // 
+            // edUsername
+            // 
+            this.edUsername.Location = new System.Drawing.Point(128, 70);
+            this.edUsername.Name = "edUsername";
+            this.edUsername.Size = new System.Drawing.Size(187, 20);
+            this.edUsername.TabIndex = 6;
+            this.edUsername.Text = "user 1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 73);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Nickname";
+            // 
             // edRemoteAddress
             // 
             this.edRemoteAddress.Location = new System.Drawing.Point(128, 16);
@@ -176,23 +194,6 @@
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Remote Port";
-            // 
-            // edUsername
-            // 
-            this.edUsername.Location = new System.Drawing.Point(128, 70);
-            this.edUsername.Name = "edUsername";
-            this.edUsername.Size = new System.Drawing.Size(187, 20);
-            this.edUsername.TabIndex = 6;
-            this.edUsername.Text = "user 1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Nickname";
             // 
             // MainFormMulticast
             // 
