@@ -43,25 +43,53 @@ namespace LanApp7_1Web
 
         private async void btnHttpLoad_Click(object sender, EventArgs e)
         {
+            lbHttpHeaders.Items.Clear();
+
             // подготовка запроса
             HttpWebRequest httpWebRequest = WebRequest.CreateHttp(edHttpAddress.Text);
-            // отправка запроса к ресурсу и получение ответа
-            using (HttpWebResponse httpWebResponse = (HttpWebResponse)await httpWebRequest.GetResponseAsync())
+            //httpWebRequest.Headers.Add("Content-Encoding", "utf-8");
+            httpWebRequest.CookieContainer = new CookieContainer();
+            //httpWebRequest.CookieContainer.Add(new Cookie("user", "admin"));
+            try
             {
-                // читаем заголовки HTTP-ответа
-                WebHeaderCollection headerCollection = httpWebResponse.Headers;
-                for (int i = 0; i < headerCollection.Count; i++)
+                // отправка запроса к ресурсу и получение ответа
+                using (HttpWebResponse httpWebResponse = (HttpWebResponse)await httpWebRequest.GetResponseAsync())
                 {
-                    lbHttpHeaders.Items.Add($"{headerCollection.GetKey(i)}: {headerCollection[i]}");
+                    // статус-код говорит про успешность выполнения запроса
+                    lbHttpHeaders.Items.Add($"StatusCode: {httpWebResponse.StatusCode}");
+                    string statusAnswer = httpWebResponse.StatusDescription;
+                    if (!string.IsNullOrEmpty(statusAnswer))
+                        lbHttpHeaders.Items.Add($"StatusDescription: {httpWebResponse.StatusDescription}");
+
+                    // читаем заголовки HTTP-ответа
+                    WebHeaderCollection headerCollection = httpWebResponse.Headers;
+                    for (int i = 0; i < headerCollection.Count; i++)
+                    {
+                        lbHttpHeaders.Items.Add($"{headerCollection.GetKey(i)}: {headerCollection[i]}");
+                    }
+
+                    // читаем установленные cookie
+                    lbHttpHeaders.Items.Add("");
+                    lbHttpHeaders.Items.Add("Cookie");
+                    foreach (Cookie cookie in httpWebResponse.Cookies)
+                    {
+                        lbHttpHeaders.Items.Add($"{cookie.Name}: {cookie.Value}");
+                        lbHttpHeaders.Items.Add($"Cookie Domain: {cookie.Domain}");
+                    }
+
+                    // читаем ответ в потоке
+                    StreamReader stream = new StreamReader(httpWebResponse.GetResponseStream());
+                    edHttpContent.Text = stream.ReadToEnd();
+
+                    // закрыть поток после завершения
+                    stream.Close();
                 }
-
-                // читаем ответ в потоке
-                StreamReader stream = new StreamReader(httpWebResponse.GetResponseStream());
-                edHttpContent.Text = stream.ReadToEnd();
-
-                // закрыть поток после завершения
-                stream.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex.Message);
+            }
+            
 
         }
     }

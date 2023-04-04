@@ -118,6 +118,7 @@
             this.edHttpAddress.Name = "edHttpAddress";
             this.edHttpAddress.Size = new System.Drawing.Size(331, 20);
             this.edHttpAddress.TabIndex = 7;
+            this.edHttpAddress.Text = "https://www.google.com";
             // 
             // label2
             // 
