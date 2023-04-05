@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
 using System.Net;
+using System.Security.Policy;
+using System.IO;
 
 namespace LanApp8_1
 {
@@ -16,9 +18,16 @@ namespace LanApp8_1
     {
         // клиент для обработки запорсов к серверу по протоколу Http
         private static HttpClient httpClient = new HttpClient();
+        private SaveFileDialog dialog;
         public FormHttpClient()
         {
             InitializeComponent();
+            
+            dialog = new SaveFileDialog();
+            dialog.Filter = "XML files|*.xml|Json files|*.json";
+            dialog.FileName = "current.xml";
+            dialog.AddExtension = true;
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         }
 
         private async void btnHttpLoad_Click(object sender, EventArgs e)
@@ -84,6 +93,45 @@ namespace LanApp8_1
                     // отображаем контент
                     edHttpContent.Text = await httpResponse.Content.ReadAsStringAsync();
                 }
+            }
+        }
+
+        private async void btnLoadCourseXml_Click(object sender, EventArgs e)
+        {
+            Button b = sender as Button;
+            if (b == null)
+                return;
+
+            DateTime d = edDateQuery.Value;
+            string sd = d.ToString("yyyy") + d.ToString("MM") + d.ToString("dd");
+            if (b.Tag.ToString() == "json") 
+                sd += "&json";
+
+            Uri uri = new Uri("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=" + sd);
+
+            // формирование запроса к серверу
+            using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri))
+            {
+                // добавляем заголовки, при необходимости
+                httpRequestMessage.Headers.Add("User-Agent", "Chrome/51.0.2704.103 Safari/537.36 (Windows NT 6.1; Win64; x64; rv:47.0)");
+
+                // отправка запроса
+                using (HttpResponseMessage httpResponse = await httpClient.SendAsync(httpRequestMessage))
+                {
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        // отображаем контент
+                        edHttpContent.Text = await httpResponse.Content.ReadAsStringAsync();
+                    }
+                }
+            }
+        }
+
+        private void btnSaveCourseXml_Click(object sender, EventArgs e)
+        {
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllText(dialog.FileName, edHttpContent.Text);
             }
         }
     }
