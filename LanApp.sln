@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanApp8_1", "LanApp8_1\LanA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanApp8_2Smtp", "LanApp8_2Smtp\LanApp8_2Smtp.csproj", "{11771060-BEC0-4FA2-9FE5-BA042A925C27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanApp9_1", "LanApp9_1\LanApp9_1.csproj", "{F7C79F5E-51B6-4C46-B398-D6CC30E503B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{11771060-BEC0-4FA2-9FE5-BA042A925C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11771060-BEC0-4FA2-9FE5-BA042A925C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11771060-BEC0-4FA2-9FE5-BA042A925C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7C79F5E-51B6-4C46-B398-D6CC30E503B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7C79F5E-51B6-4C46-B398-D6CC30E503B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7C79F5E-51B6-4C46-B398-D6CC30E503B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7C79F5E-51B6-4C46-B398-D6CC30E503B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
