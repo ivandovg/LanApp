@@ -107,6 +107,7 @@
             this.lbFiles.Name = "lbFiles";
             this.lbFiles.Size = new System.Drawing.Size(570, 329);
             this.lbFiles.TabIndex = 4;
+            this.lbFiles.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbFiles_MouseDoubleClick);
             // 
             // label2
             // 

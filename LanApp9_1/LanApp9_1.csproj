@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FtpItem.cs" />
     <Compile Include="MainFormFtp.cs">
       <SubType>Form</SubType>
     </Compile>
