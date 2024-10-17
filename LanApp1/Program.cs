@@ -13,6 +13,7 @@ namespace LanApp1
         static void Main(string[] args)
         {
             ShowIpInfo("www.microsoft.com");
+            ShowIpInfo("www.google.com");
             Console.WriteLine("\nEnter domain name: ");
             ShowIpInfo(Console.ReadLine());
             Console.WriteLine("\nPress Enter key...");
